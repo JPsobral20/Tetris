@@ -1,34 +1,97 @@
-#   Tetris : L10_GR03 
+# Tetris
 
-Este projeto consiste no development do jogo Tetris.Aqui vão ser apresentados ao utilizador
-um conjunto de 7 peças distintas que vão deslizando pelo tabuleiro até atingirem o seu fundo.
-O objetivo é rodar e mover as peças de forma a que estas ocupem uma linha do tabuleiro para essa ser
-destruída e o utilizador é recompensado no sistema de pontos. Joga-se até uma peça atingir o topo do tabuleiro.
+A Java implementation of the classic Tetris game, developed as part of the **Software Design and Testing Laboratory** course at the Faculty of Engineering of the University of Porto (FEUP).
 
-Este projeto foi desenvolvido por Carolina Gonçalves (up202108781@fe.up.pt), João Sobral (up202108736@fe.up.pt), 
-João Sequeira (up202108823@fe.up.pt) no âmbito da unidade curricular de Laboratório de Teste
-e Desenho de Software.
+The project recreates the classic block-stacking experience, featuring multiple game modes, score tracking, level progression, sound effects, and a terminal-based graphical interface.
 
-## Features Implementadas
-Menu(Early)
-![TempMenu](https://i.imgur.com/X2DSz2A.png)
-![TempMenu](https://i.imgur.com/V7me2SI.png)
+## Features
 
+- **Classic Tetris gameplay** – Move and rotate falling pieces to complete horizontal lines.
+- **Seven tetromino types** – Supports the classic I, J, L, O, S, T, and Z pieces.
+- **Multiple game modes:**
+  - Default – Classic gameplay.
+  - Marathon – Progress through levels up to level 15.
+  - 40 Lines – Complete 40 lines.
+  - Ultra – Play against a three-minute timer.
+- **Scoring system** – Earn points by clearing lines, with different rewards depending on the number of lines cleared simultaneously.
+- **Level progression** – Increase the game speed as you advance.
+- **Ghost piece** – Preview where the current piece will land.
+- **Sound effects and background music** – Audio feedback for gameplay events.
+- **Menus and settings** – Navigate the main menu, instructions, and game mode selection.
+- **Automated testing** – Includes unit tests and property-based testing.
 
-## Features Planeadas
+## Technologies
 
+- **Java**
+- **Gradle** – Build and dependency management.
+- **Lanterna 3.1.1** – Terminal-based graphical interface.
+- **JUnit 5** – Unit testing.
+- **Mockito** – Mocking framework.
+- **jqwik** – Property-based testing.
+- **PIT** – Mutation testing.
 
-## Design
+## Project Structure
 
+```text
+Tetris/
+├── src/
+│   ├── main/
+│   │   ├── java/com/aor/tetris/
+│   │   │   ├── controllers/    # Game and menu controllers
+│   │   │   ├── gui/            # Terminal interface
+│   │   │   ├── model/          # Game logic and data models
+│   │   │   ├── states/         # Game states and transitions
+│   │   │   ├── viewer/         # Rendering components
+│   │   │   └── Game.java       # Application entry point
+│   │   └── resources/
+│   │       ├── fonts/          # Custom fonts
+│   │       └── sounds/         # Music and sound effects
+│   └── test/                   # Automated tests
+├── build.gradle
+├── settings.gradle
+└── README.md
+```
 
-## Imagens
-![TemporaryUML](https://i.imgur.com/oe3Qtp6.png)  
+## Getting Started
 
-### TESTING
-![TempCoverage](https://i.imgur.com/n92FPFf.png)
+### Prerequisites
 
-### SELF-EVALUATION
+- Java Development Kit (JDK)
+- Gradle
 
-Carolina Gonçalves --- 33%
-João Sobral --- 33%
-João Sequeira --- 33%
+### Installation
+
+1. Clone the repository
+
+2. Build the project:
+
+   ```bash
+   gradle build
+   ```
+
+3. Run the application:
+
+   ```bash
+   gradle run
+   ```
+
+> **Configuration note:** Before running the application, ensure that the `application.mainClass` setting in `build.gradle` points to `com.aor.tetris.Game`, which contains the project's `main` method.
+
+## Testing
+
+Run the automated tests with:
+
+```bash
+gradle test
+```
+
+The project also includes PIT configuration for mutation testing.
+
+## Gameplay
+
+The objective is to arrange falling tetrominoes to complete horizontal lines. Completed lines disappear and increase the player's score. The game ends when the pieces can no longer be placed within the board.
+
+## Academic Context
+
+Developed as a group project for the **Software Design and Testing Laboratory** course at FEUP.
+
